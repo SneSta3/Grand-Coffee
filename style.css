@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 40px;
+  color: #fd7e14;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+hr {
+  width: 150px;
+  height: 2px;
+  border: none;
+  background-color: #fd7e14;
+  margin: 15px auto;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.button {
+  padding: 20px 40px;
+  background-color: #252525;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: #fd7e14;
+}
+
+/******************************
+Header 
+******************************/
+/******************************
+Hero 
+******************************/
+/******************************
+About 
+******************************/
+/******************************
+Services 
+******************************/
+/******************************
+Gallery 
+******************************/
+/******************************
+Info 
+******************************/
+/******************************
+Footer 
+******************************//*# sourceMappingURL=style.css.map */
