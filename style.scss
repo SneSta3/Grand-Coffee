@@ -12,7 +12,7 @@ $white: #fff;
 $gray-dark: #343a40;
 $dark: #252525;
 
-
+$padding: 80px 0;
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -21,6 +21,7 @@ body {
 h1{
     font-size: 70px;
     font-weight: 600;
+    color: $white;
 }
 
 h2{
@@ -41,6 +42,7 @@ ul {
 a {
     text-decoration: none;
     color: $white;
+    transition:0.5s;
 }
 
 img {
@@ -78,44 +80,247 @@ hr {
 }
 
 /******************************
+Mixin
+******************************/
+@mixin fleks($jus:space-between, $ali:center, $dir:row ){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $jus;
+    align-items: $ali;
+    flex-direction: $dir;    
+}
+
+@mixin responsive($uredjaj) {
+    @if $uredjaj ==tablet {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $uredjaj ==mobilni {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+}
+
+/******************************
 Header 
 ******************************/
-
-
+header{
+    background-color: $dark;
+    .container{
+        height: 80px;
+        @include fleks();
+        @include responsive(mobilni){
+            flex-direction: column;
+        }
+    }
+    .logo{
+        a{
+            font-size: 25px;
+            font-weight: 600;
+            span{
+                color: $orange;
+            }
+        }
+    }
+    nav{
+        ul{
+            display: flex;
+            li{
+                padding: 1rem;
+                a{
+                    font-size: 1.2rem;
+                    &:hover{
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}
 
 /******************************
 Hero 
 ******************************/
-
-
-
-
+.hero{
+    background: url(img/banner-bg.png);
+    background-size: cover;
+    background-position: center;
+    color: $white;
+    .container{
+        min-height: 70vh;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
+        @include fleks($jus:center, $ali:flex-start, $dir:column);
+        padding-right: 40%;
+        @include responsive(tablet){
+            padding-right: 30%;
+        }
+        @include responsive(mobilni){
+            padding-right: 2%;
+            padding-left: 2%;
+            text-align: center;
+            align-items: center;
+        }
+        h1{
+            @include responsive(mobilni){
+                font-size: 50px;
+            }
+            span{
+                color: $dark;
+                font-weight: 400;
+                font-size: 60px;
+                @include responsive(mobilni){
+                    font-size: 45px;
+                }
+            }
+        }
+    }
+}
 
 /******************************
 About 
 ******************************/
-
-
+.about{
+    padding: $padding;
+    @include fleks();
+    &-tekst{
+        width: 50%;
+        @include responsive(tablet){
+            width: 100%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h2{
+            text-transform: uppercase;
+        }
+        hr{
+            margin-left: 0;
+            @include responsive(tablet){
+                margin-left: auto;
+            }
+        }
+    }
+    &-slika{
+        width: 50%;
+        @include responsive(tablet){
+            width: 100%;
+        }
+    }
+}
 
 /******************************
 Services 
 ******************************/
-
-
+.services{
+    padding: $padding;
+    background-color: $dark;
+    text-align: center;
+    color: $white;
+    .container{
+        .articles{
+            @include fleks();
+            margin-top: 3rem;
+            article{
+                background-color: $orange;
+                width: 32%;
+                @include responsive(tablet){
+                    width: 80%;
+                    margin: 2rem auto;
+                }
+                @include responsive(mobilni){
+                    width: 98%;
+                }
+                padding: 3rem;
+                transition: 0.5s;
+                &:hover{
+                    background-color: $gray-dark;
+                }
+            }
+        }
+    }
+}
 
 /******************************
 Gallery 
 ******************************/
-
-
-
+.gallery{
+    padding: $padding;
+    text-align: center;
+    .images{
+        margin-top: 3rem;
+        @include fleks();
+        figure{
+            width: 32%;
+            margin-bottom: 20px;
+            @include responsive(tablet){
+                width: 48%;
+            }
+            @include responsive(mobilni){
+                width: 98%;
+                margin: auto;
+            }
+        }
+    }
+}
 
 /******************************
 Info 
 ******************************/
-
-
+.info{
+    text-align: center;
+    padding: $padding;
+    @include responsive(mobilni){
+        padding-inline: 2%;
+    }    
+    hr{
+        margin-left: 0;
+    }
+    h2{
+        @include responsive(mobilni){
+            font-size: 2rem;
+        }
+    }
+    .lead{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    hr:last-of-type{
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
 
 /******************************
 Footer 
 ******************************/
+footer{
+    padding: 80px 0 20px;
+    background-color: $dark;
+    color: $white;
+    .container{
+        @include fleks();
+        article{
+            width: 32%;
+            @include responsive(tablet){
+                width: 90%;
+                margin:  1rem auto;
+                text-align: center;
+          }      
+        }
+    }
+    hr{
+        margin-top: 2rem;
+        width: 80%;
+        height: 1px;
+        background-color: $white;
+    }
+    .copy{
+        text-align: center;
+    }
+}
